@@ -2,8 +2,8 @@
     "name": "goto-documentation",
     "displayName": "vscode-goto-documentation",
     "description": "VS Code extension to go to documentation",
-    "version": "0.0.1",
-    "publisher": "cxfksword",
+    "version": "0.1.0",
+    "publisher": "friedbrice",
     "engines": {
         "vscode": "^1.10.0"
     },
@@ -12,10 +12,10 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/cxfksword/vscode-goto-documentation"
+        "url": "https://github.com/friedbrice/vscode-goto-documentation"
     },
     "bugs": {
-        "url": "https://github.com/cxfksword/vscode-goto-documentation/issues"
+        "url": "https://github.com/friedbrice/vscode-goto-documentation/issues"
     },
     "license": "Apache License 2.0",
     "icon": "doc/img/icon.png",
@@ -27,17 +27,17 @@
         "commands": [
             {
                 "command": "extension.gotoDocument",
-                "title": "Go to Document"
+                "title": "Browse documentation"
             }
         ],
         "configuration": {
             "type": "object",
-            "title": "Go to Document configuration",
+            "title": "Goto Documentation configuration",
             "properties": {
                 "goto-documentation.customDocs": {
                     "type": "object",
                     "default": {},
-                    "description": "Extend docs url for not support languages. ex. {'file.ext':'http://ext.com/?search=${query}'}"
+                    "description": "Override or extend mapping of file extentions to URLs. E.g. {\"md\": \"http://en.wikipedia.org/wiki/${query}\"}"
                 }
             }
         },
@@ -53,7 +53,7 @@
             "editor/context": [
                 {
                     "command": "extension.gotoDocument",
-                    "group": "navigation@1"
+                    "group": "navigation@10"
                 }
             ]
         }
@@ -72,6 +72,6 @@
         "@types/mocha": "^2.2.32"
     },
     "dependencies": {
-        "opn": "^5.4.0"
+        "open": "^5.4.0"
     }
 }

@@ -22,29 +22,26 @@ A Visual Studio Code extension to jump to documentation for the current keyword,
  * ...you can add any other language via settings
 
 
-Installation
---------------
+## Installation
 
-Search for `goto documentation`
-
+Search for `goto documentation`.
 
 
-How to use
-----------------
+## How to use
+
 Move the cursor inside the word you want the docs for and: 
- * Press `Super+Shift+H` or  
- * mouse right click the word and select **gotoDocument**
+  * Press `Super+Shift+H`, or
+  * mouse right click the word and select **Browse documentation** from the context menu.
 
-## Edit the urls
-GotoDocumentation allows you to edit the url that opens by editing the settings.
-### The available settings are:
+
+## Configuration
+
+_Goto Documentation_ includes a default mapping from file extentions to URLs that suits most purposes.
+Use the settings property `goto-documentation.customDocs` to override or extend the default mapping.
+The character string `${query}` represents the text selection/entity under cursor in your editor.
+
 ```
-
     "goto-documentation.customDocs": {
-        // the key value pair represent scope -> doc url
-        // supported placeholders:
-        //  - ${query} the selected text/word
-       "css": "http://devdocs.io/#q=${query}",
+       "md": "https://en.wikipedia.org/wiki/${query}"
     }
-
 ```
