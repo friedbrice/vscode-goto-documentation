@@ -2,14 +2,9 @@
 
 import * as vscode from 'vscode';
 
-const open = require('open');
-const open_darwin = require('mac-open');
+const opn = require('opn');
 
 export default class Document {
-    // decide what os should be used
-    // possible node values 'darwin', 'freebsd', 'linux', 'sunos' or 'win32'
-    private static platform: string  = process.platform;
-
     private static defaultDocs : object = {
         "ahk": "https://autohotkey.com/docs/commands/${query}.htm",
         "controller": "http://api.rubyonrails.org/?q=${query}",
@@ -56,6 +51,6 @@ export default class Document {
              url = docs['google'].replace('${query}', encodeURIComponent(keyword));
         }
 
-        this.platform === 'darwin' ? open_darwin(url) : open(url);
+        opn(url)
     }
 }
